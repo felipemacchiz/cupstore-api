@@ -5,7 +5,7 @@ const controller = require('../controllers/cupcakeController');
 // GET
 router.get('/cupcakes', controller.getAll);
 
-router.get('/cupcakes/:id', controller.getById);
+// router.get('/cupcakes/:id', controller.getById);
 
 router.get('/cupcakes/:key', controller.getByKey);
 
