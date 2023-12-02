@@ -2,9 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/database'); // Caminho para o arquivo de configuração do banco de dados
 const cupcakeRoutes = require('./src/routes/cupcakesRoute');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 // Conectar ao MongoDB
 connectDB();
