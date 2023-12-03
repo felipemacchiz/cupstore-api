@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/database'); // Caminho para o arquivo de configuração do banco de dados
 const cupcakeRoutes = require('./src/routes/cupcakesRoute');
+const orderRoutes = require('./src/routes/ordersRoute');
 const cors = require('cors');
 
 const app = express();
@@ -9,14 +10,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-// Conectar ao MongoDB
 connectDB();
 
-// Configurar o Body Parser para lidar com dados JSON
 app.use(bodyParser.json());
 
-// Resto do seu código...
 app.use('/api', cupcakeRoutes);
+app.use('/api', orderRoutes);
 
 // Iniciar o servidor
 app.listen(PORT, () => {
