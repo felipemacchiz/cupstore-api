@@ -6,6 +6,8 @@ const Orders = mongoose.model('orders', {
 	shippingPrice: Number,
 	items: Object,
 	address: String,
+	distance: Number,
+	duration: Number,
 	paid: Boolean,
 	prepared: Boolean,
 	sent: Boolean,
