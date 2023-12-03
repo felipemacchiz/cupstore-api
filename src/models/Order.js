@@ -5,7 +5,7 @@ const Orders = mongoose.model('orders', {
 	orderPrice: Number,
 	shippingPrice: Number,
 	items: Object,
-	address: Object,
+	address: String,
 	paid: Boolean,
 	prepared: Boolean,
 	sent: Boolean,
