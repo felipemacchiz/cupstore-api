@@ -2,13 +2,13 @@ const Order = require('../models/Order');
 
 
 const getAll = async (req, res) => {
-	const ids = req.body;
+	const query = req.query._id;
 
 	try {
 		let orders;
 
-		if (ids) {
-			orders = await Order.find({ _id: ids });
+		if (query) {
+			orders = await Order.find({ _id: query.split(',') });
 		} else {
 			orders = await Order.find();
 		}
