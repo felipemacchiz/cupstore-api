@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
 
     	res.json(orders);
   	} catch (error) {
-    	res.status(500).json({ error: 'Erro ao obter lista de pedidos!' });
+    	res.status(500).json({ msg: 'Erro ao obter lista de pedidos!', error });
   	}
 };
 
@@ -27,12 +27,12 @@ const getById = async (req, res) => {
 	    const order = await Order.findById(id);
     	
 		if (!order) {
-      		return res.status(404).json({ error: 'Pedido não encontrado!' });
+      		return res.status(404).json({ msg: 'Pedido não encontrado!' });
     	}
 
     	res.json(proorderduct);
   	} catch (error) {
-    	res.status(500).json({ error: 'Erro ao obter pedido por ID' });
+    	res.status(500).json({ msg: 'Erro ao obter pedido por ID', error });
   	}	
 };
 
@@ -45,7 +45,7 @@ const create = async (req, res) => {
 		
     	res.json(savedItem);
   	} catch (error) {
-	    res.status(500).json({ error: 'Erro ao salvar pedido' });
+	    res.status(500).json({ msg: 'Erro ao salvar pedido', error });
   	}
 };
 
@@ -57,12 +57,12 @@ const update = async (req, res) => {
     	const updatedItem = await Order.findByIdAndUpdate(itemId, req.body, { new: true });
     	
 		if (!updatedItem) {
-      		return res.status(404).json({ error: 'Pedido não encontrado' });
+      		return res.status(404).json({ msg: 'Pedido não encontrado' });
     	}
 
     	res.json(updatedItem);
   	} catch (error) {
-	    res.status(500).json({ error: 'Erro ao atualizar pedido' });
+	    res.status(500).json({ msg: 'Erro ao atualizar pedido', error });
   	}
 };
 
