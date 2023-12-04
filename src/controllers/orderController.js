@@ -40,8 +40,6 @@ const getById = async (req, res) => {
 const create = async (req, res) => {
   	const newItem = new Order(req.body);
 
-	console.log(newItem);
-
   	try {
     	const savedItem = await newItem.save();
 		
@@ -56,8 +54,6 @@ const update = async (req, res) => {
   	const itemId = req.params.id;
 
   	try {
-		console.log(itemId, req.body);
-
     	const updatedItem = await Order.findByIdAndUpdate(itemId, req.body, { new: true });
     	
 		if (!updatedItem) {
