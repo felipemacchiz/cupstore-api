@@ -2,8 +2,16 @@ const Order = require('../models/Order');
 
 
 const getAll = async (req, res) => {
+	const ids = req.body;
+
 	try {
-    	const orders = await Order.find();
+		let orders;
+
+		if (ids) {
+			orders = await Order.find({ _id: ids });
+		} else {
+			orders = await Order.find();
+		}
 
     	res.json(orders);
   	} catch (error) {
