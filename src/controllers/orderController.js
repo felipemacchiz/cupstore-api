@@ -3,7 +3,7 @@ const Order = require('../models/Order');
 
 const getAll = async (req, res) => {
 	try {
-    	const orders = await Order.find().sort({ _id: '-1' });
+    	const orders = await Order.find();
 
     	res.json(orders);
   	} catch (error) {
