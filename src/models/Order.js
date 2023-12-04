@@ -9,14 +9,11 @@ const Orders = mongoose.model('orders', {
 	distance: Number,
 	duration: Number,
 	paid: Boolean,
-	prepared: Boolean,
-	sent: Boolean,
-	delivered: Boolean,
+	canceled: Boolean,
+	concluded: Boolean,
 	orderTime: String,
 	paidTime: String,
-	sentTime: String,
-	deliveredTime: String,
-	canceled: Boolean,
+	canceledTime: String,
 });
 
 module.exports = Orders;
